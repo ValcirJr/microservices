@@ -12,6 +12,21 @@ services:
     networks:
       - microservices
       - postgres
+    ports:
+      - 8090:8090
+
+  microservices-fraud:
+    container_name: fraud-application
+    image: microservices/fraud
+    networks:
+      - microservices
+      - mongo
+
+  microservices-notification:
+    container_name: notification-application
+    image: microservices/notification
+    networks:
+      - microservices
 
   postgres:
     container_name: postgres
@@ -54,10 +69,12 @@ services:
       - 27018:27017
     volumes:
       - mongodb_data_container:/data/db
+    networks:
+      - mongo
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
+    container_name: rabbitmq
     ports:
       - 5673:5672
       - 15673:15672
@@ -65,14 +82,14 @@ services:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
-      - rabbitmq
+      - microservices
 
 networks:
   postgres:
     driver: bridge
-  rabbitmq:
-    driver: bridge
   microservices:
+    driver: bridge
+  mongo:
     driver: bridge
 
 volumes:

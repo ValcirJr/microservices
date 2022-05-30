@@ -23,7 +23,7 @@ spring:
           instances:
             localhost:
               0:
-                uri: http://microservices-fraud:8092
+                uri: http://fraud-application:8092
 
 
 customer:
