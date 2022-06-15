@@ -8,3 +8,6 @@ spring:
     password: guest
     queue:
       name: fraudsters-one
+  zipkin:
+    enabled: true
+    baseUrl: http://zipkin:9411

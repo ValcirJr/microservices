@@ -14,6 +14,7 @@
     <module>fraud</module>
     <module>eureka-server</module>
     <module>notification</module>
+    <module>config-server</module>
   </modules>
 
   <name>microservices</name>
@@ -58,6 +59,15 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-zipkin</artifactId>
+      <version>2.2.0.RELEASE</version>
     </dependency>
   </dependencies>
 

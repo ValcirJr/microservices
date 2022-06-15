@@ -21,6 +21,9 @@ spring:
       name: fraud-to-notification
     queue:
       name: fraudsters-%s
+  zipkin:
+    enabled: true
+    baseUrl: http://zipkin:9411
 
 eureka:
   client:
